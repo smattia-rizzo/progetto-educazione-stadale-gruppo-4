@@ -3,7 +3,7 @@
 Questo progetto è nato per insegnare il codice della strada per gli studenti
 
 ## Composizione
-- Sito web su Github Pages
+- [Sito web](https://smattia-rizzo.github.io/progetto-educazione-stadale-gruppo-4/) su Github Pages
 
 
 ## Membri del gruppo
