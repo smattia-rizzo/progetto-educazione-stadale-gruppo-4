@@ -2,17 +2,21 @@ body{
     background-color: rgb(48, 48, 48);
 }
 
+main{
+  margin-top: 70px;
+}
+
 .list-group-item{
   background-color: rgb(48, 48, 48) !important;
   color: white !important;
 }
 
-#pg1, #pg2, #pg3, #pg4, #pg5, #pg6{
+#pg0, #pg1, #pg2, #pg3, #pg4, #pg5, #pg6{
   text-align: center;
   color: white;
   margin-top: 5%;
 }
 
-#pg2, #pg3, #pg4, #pg5, #pg6{
+#pg1, #pg2, #pg3, #pg4, #pg5, #pg6{
   display: none;
 }
