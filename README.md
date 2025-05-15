@@ -7,5 +7,5 @@ Questo progetto è nato per insegnare il codice della strada per gli studenti
 
 
 ## Membri del gruppo
-- Barbacini Riccado
+- Barbacini Riccardo
 - Rizzo Mattia Pio

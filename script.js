@@ -10,96 +10,27 @@ class Quiz {
   }
 }
 
-function clear(){
-  document.getElementById("pg0").style.display = "none";
-  document.getElementById("pg1").style.display = "none";
-  document.getElementById("pg2").style.display = "none";
-  document.getElementById("pg3").style.display = "none";
-  document.getElementById("pg4").style.display = "none";
-  document.getElementById("pg5").style.display = "none";
-  document.getElementById("pg6").style.display = "none";
+//nuova gestione cambio pagina
+function cambiaPagina() {
+      const nome_pagina = location.hash || "#pg0";
+      const pagine = document.querySelectorAll(".pagina"); //Seleziona tutti gli elementi pagina
 
-}
+      pagine.forEach(pagina => {
+        pagina.classList.remove("attiva");  //Deseleziona le pagine attualmente attive
+        if ("#" + pagina.id === nome_pagina) {
+          pagina.classList.add("attiva");   //Rende attiva solamente la pagina selezionata
+        }
+      });
+    }
 
-
-//Pagina 1
-function pg1() {
-  clear();
-  document.getElementById("pg1").style.display = "block";
-}
-
-document.getElementById("btn1").addEventListener("click", function(){
-  pg1();
-})
-document.getElementById("indice1").addEventListener("click", function(){
-  pg1();
-})
+// Pagina al caricamento del documento html
+window.addEventListener("load", cambiaPagina);
+// Cambia pagina ad ogni cambio dell'id di redirect nell'url
+window.addEventListener("hashchange", cambiaPagina);
 
 
-//Pagina 2
-function pg2() {
-  clear();
-  document.getElementById("pg2").style.display = "block";
-}
-document.getElementById("btn2").addEventListener("click", function(){
-  pg2();
-})
-document.getElementById("indice2").addEventListener("click", function(){
-  pg2();
-})
 
-
-//Pagina 3
-function pg3() {
-  clear();
-  document.getElementById("pg3").style.display = "block";
-}
-document.getElementById("btn3").addEventListener("click", function(){
-  pg3();
-})
-document.getElementById("indice3").addEventListener("click", function(){
-  pg3();
-})
-
-
-//Pagina 4
-function pg4() {
-  clear();
-  document.getElementById("pg4").style.display = "block";
-}
-document.getElementById("btn4").addEventListener("click", function(){
-  pg4();
-})
-document.getElementById("indice4").addEventListener("click", function(){
-  pg4();
-})
-
-
-//Pagina 5
-function pg5() {
-  clear();
-  document.getElementById("pg5").style.display = "block";
-}
-document.getElementById("btn5").addEventListener("click", function(){
-  pg5();
-})
-document.getElementById("indice5").addEventListener("click", function(){
-  pg5();
-})
-
-
-//Pagina 6
-function pg6() {
-  clear();
-  document.getElementById("pg6").style.display = "block";
-}
-document.getElementById("btn6").addEventListener("click", function(){
-  pg6();
-})
-document.getElementById("indice6").addEventListener("click", function(){
-  pg6();
-})
-
+//Prova per il Quiz sul Json
 fetch('./quiz/quizPatenteB2023.json')
   .then(response => response.json())  // Converte la risposta in JSON
   .then(data => {
