@@ -9,7 +9,7 @@
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     </head>
-    <body>
+    <body data-bs-theme="dark">
         <!-- navbar -->
         <nav class="navbar navbar-dark bg-dark fixed-top">
             <div class="container-fluid">
@@ -38,11 +38,12 @@
             </div>
         </nav>
         <!-- Corpo della pagina -->
-        <main>
-            <div id="pg0" class="pagina">
+        <main class="container text-center">
+            <div id="pg0" class="pagina container">
                 <h1>Benvenuti nel sito web</h1>
                 <p>All'interno troverete tante sezioni con il fine ultimo di insegnare l'educazione stradale</p>
-                <p>Indice:</p>
+                <p>I nostri argomenti:</p>
+                <!--TODO: "Card"s component per ogni argomento al posto della lista-->
                 <div class="list-group">
                     <a href="#pg1" class="list-group-item list-group-item-action">definizioni-generali-doveri-strada</a>
                     <a href="#pg2" class="list-group-item list-group-item-action">segnali stradali e di pericolo</a>
@@ -53,32 +54,32 @@
                 </div>
             </div>
             <!-- pagina definizioni-generali-doveri-strada -->
-            <div id="pg1" class="pagina">
+            <div id="pg1" class="pagina container">
                 <h1>definizioni-generali-doveri-strada</h1>
             </div>
         
             <!-- pagina segnali stradali e di pericolo -->
-            <div id="pg2" class="pagina">
+            <div id="pg2" class="pagina container">
                 <h1>segnali stradali e di pericolo</h1>
             </div>
             
             <!-- pagina limiti di velocità, pericolo e intralcio alla circolazione -->
-            <div id="pg3" class="pagina">
+            <div id="pg3" class="pagina container">
                 <h1>limiti di velocità, pericolo e intralcio alla circolazione</h1>
             </div>
             
             <!-- pagina esempi di precedenza -->
-            <div id="pg4" class="pagina">
+            <div id="pg4" class="pagina container">
                 <h1>esempi di precedenza</h1>
             </div>
             
             <!-- pagina arresto, fermata e sosta -->
-            <div id="pg5" class="pagina">
+            <div id="pg5" class="pagina container">
                 <h1>arresto, fermata e sosta</h1>
             </div>
 
             <!-- pagina quiz -->
-            <div id="pg6" class="pagina">
+            <div id="pg6" class="pagina container">
                 <h1>quiz</h1>
             </div>
         </main>
