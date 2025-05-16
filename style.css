@@ -22,6 +22,14 @@ main{
   display: block;
 }
 
+/*TODO: aggiustare l'ampiezza*/
+#questionImage {
+  max-height: 400px;
+  height: auto;
+  width: auto;
+}
+
 /* Rifinimento della schermata quando raggiunge una dimensione non supportata */
 @media only screen and (max-width: 272px) {
+
 }

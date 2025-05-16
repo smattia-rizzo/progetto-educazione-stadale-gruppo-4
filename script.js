@@ -1,4 +1,6 @@
-//nuova gestione cambio pagina
+/**
+ * Funzione per cambiare la pagina in base all'hash dell'url
+ */
 function cambiaPagina() {
       const nome_pagina = location.hash || "#pg0";
       const pagine = document.querySelectorAll(".pagina"); //Seleziona tutti gli elementi pagina
@@ -19,8 +21,19 @@ window.addEventListener("hashchange", cambiaPagina);
 
 let domandeSelezionate = [];
 let indiceDomandaCorrente = 0;
+/**
+ * Link raw del GitHub dove prendiamo le informazioni per il quiz
+ */
+const rawUrlGitHubQuiz = "https://raw.githubusercontent.com/Ed0ardo/QuizPatenteB/refs/heads/main/"
 
-  fetch('./quiz/patenteQuiz.json')
+/**
+ * @todo Gestione in classi del Quiz e logica del quiz.
+ * @todo ProgressBar
+ * @todo Randomizzazione della pesca delle domande per il test finale
+ * @todo Il Quiz Finale comprenderà tutti gli argomenti trattati, mentre quelli relativi alle pagine solo l'argomento stesso
+ * @error Il Quiz viene avviato al caricamento generale invece del caricamento del div relativo al quiz
+ */
+  fetch(rawUrlGitHubQuiz + "quizPatenteB2023.json")
     .then(response => response.json())
     .then(data => {
       const tutteDomande = [];
@@ -86,7 +99,8 @@ let indiceDomandaCorrente = 0;
     testo.textContent = `Domanda ${indice + 1}: ${domanda.q}`;
     
     if (domanda.img) {
-      img.src = domanda.img;
+      img.src = rawUrlGitHubQuiz + domanda.img;
+      img.style.maxHeight = "400px"
       img.style.display = 'block';
       img.alt = 'Immagine domanda';
     } else {
