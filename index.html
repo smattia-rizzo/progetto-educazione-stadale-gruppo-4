@@ -13,7 +13,7 @@
         <!-- navbar -->
         <nav class="navbar navbar-dark bg-dark fixed-top">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#pg0">Educazione stradale</a>
+                <a class="navbar-brand" href="#pgHomepage">Educazione stradale</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
                 <span class="navbar-toggler-icon"></span>
                 </button>
@@ -32,14 +32,14 @@
                         </div>
                     </div>
                     <div class="list-group">
-                        <a href="#pg6" class="list-group-item list-group-item-action">Quiz Finale</a>
+                        <a href="#pgQuizFinale" class="list-group-item list-group-item-action">Quiz Finale</a>
                     </div>
                 </div>
             </div>
         </nav>
         <!-- Corpo della pagina -->
         <main class="container text-center">
-            <div id="pg0" class="pagina container">
+            <div id="pgHomepage" class="pagina container">
                 <h1>Benvenuti nel sito web</h1>
                 <p>All'interno troverete tante sezioni con il fine ultimo di insegnare l'educazione stradale</p>
                 <p>I nostri argomenti:</p>
@@ -50,7 +50,7 @@
                     <a href="#pg3" class="list-group-item list-group-item-action">limiti di velocità, pericolo e intralcio alla circolazione</a>
                     <a href="#pg4" class="list-group-item list-group-item-action">esempi di precedenza</a>
                     <a href="#pg5" class="list-group-item list-group-item-action">arresto, fermata e sosta</a>
-                    <a href="#pg6" class="list-group-item list-group-item-action">Quiz Finale</a>
+                    <a href="#pgQuizFinale" class="list-group-item list-group-item-action">Quiz Finale</a>
                 </div>
             </div>
             <!-- pagina definizioni-generali-doveri-strada -->
@@ -79,16 +79,13 @@
             </div>
 
             <!-- pagina quiz -->
-            <div id="pg6" class="pagina container">
-                <div class="container-sm py-5">
+            <div id="pgQuizFinale" class="pagina container">
+                <div class="container-sm py-5" id="quizFinale">
                     <div class="card shadow rounded-4">
                         <p id="timer" class="mb-3 fs-4 fw-bold">Tempo rimasto: 20:00</p>
                         <img id="questionImage" src="https://via.placeholder.com/400x200?text=Immagine+Domanda" class="card-img-top rounded mb-3" alt="Domanda">
                         <div class="card-body text-center">
                             <h2 class="card-title mb-4">Quiz Patente</h2>
-
-                            <!-- Immagine della domanda -->
-                            
 
                             <!-- Testo della domanda -->
                             <p class="fs-5" id="questionText">Caricamento domande...</p>
@@ -97,6 +94,9 @@
                             <div class="mb-3">
                                 <button id="btnTrue" class="btn btn-success me-2">Vero</button>
                                 <button id="btnFalse" class="btn btn-danger">Falso</button>
+                            </div>
+                            <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                                <div id="progressBar" class="progress-bar progress-bar-striped progress-bar-animated" style="width: 75%">1/30</div>
                             </div>
                         </div>
                     </div>

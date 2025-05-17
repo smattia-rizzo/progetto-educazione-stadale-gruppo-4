@@ -29,6 +29,12 @@ main{
   width: auto;
 }
 
+
+
+#quizFinale {
+    max-width: 400px;
+  }
+
 /* Rifinimento della schermata quando raggiunge una dimensione non supportata */
 @media only screen and (max-width: 272px) {
 
