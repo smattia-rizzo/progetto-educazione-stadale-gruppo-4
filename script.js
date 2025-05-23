@@ -1,8 +1,15 @@
-// Classe per gestire l'utente
+/**
+ * Classe per gestire l'utente
+ */
 class Utente {
+  /**
+   * Costruttore per un Utente
+   * @param {string} nome Nome dell'utente
+   * @param {Quiz} quizCorrente Istanza del quiz che sta affrontando
+   */
   constructor(nome, quizCorrente) {
-    this.nome = nome; // Nome dell'utente
-    this.quizCorrente = quizCorrente; // Istanza del quiz che sta affrontando
+    this.nome = nome;
+    this.quizCorrente = quizCorrente;
   }
 
   // Getter e setter per nome e quizCorrente
@@ -12,11 +19,18 @@ class Utente {
   setQuizCorrente(quizCorrente) { this.quizCorrente = quizCorrente; }
 }
 
-// Classe per rappresentare un quiz
+/**
+ * Classe per rappresentare un quiz
+ */
 class Quiz {
+  /**
+   * Costruttore per un Quiz
+   * @param {Domanda[]} domande Lista delle domande
+   * @param {Timer} timer Istanza del Timer
+   */
   constructor(domande, timer) {
-    this.domande = domande; // Lista delle domande
-    this.timer = timer;     // Istanza del Timer
+    this.domande = domande;
+    this.timer = timer;
   }
 
   // Getter e setter per domande e timer
@@ -26,13 +40,22 @@ class Quiz {
   setTimer(timer) { this.timer = timer; }
 }
 
-// Classe per rappresentare una domanda
+/**
+ * Classe per rappresentare una domanda
+ */
 class Domanda {
+  /**
+   * Costrutture di una domanda
+   * @param {string} testo Testo della domanda
+   * @param {string} img Percorso dell'immagine associata
+   * @param {int} indice ID univoco o indice della domanda
+   * @param {boolean} risposta Risposta corretta (booleano)
+   */
   constructor(testo, img, indice, risposta) {
-    this.testo = testo;           // Testo della domanda
-    this.img = img;               // Percorso dell'immagine associata
-    this.indice = indice;         // ID univoco o indice della domanda
-    this.risposta = risposta;     // Risposta corretta (booleano)
+    this.testo = testo;
+    this.img = img;
+    this.indice = indice;
+    this.risposta = risposta;
     this.rispUtente = null;       // Risposta data dall'utente (inizialmente nulla)
   }
 
@@ -49,16 +72,24 @@ class Domanda {
   setRispUtente(rispUtente) { this.rispUtente = rispUtente; }
 }
 
-// Classe per gestire il timer
+/**
+ * Classe per gestire il timer
+ */
 class Timer {
+  /**
+   * Costruttore della classe Timer
+   * @param {int} secondi Secondi totali impostati
+   */
   constructor(secondi) {
-    this.secondi = secondi;               // Secondi totali impostati
+    this.secondi = secondi;               // 
     this.tempoRimasto = secondi;          // Tempo rimasto
     this.timerElement = document.getElementById('timer'); // Elemento HTML del timer
     this.timerInterval = setInterval(this.aggiornaTimer.bind(this), 1000); // Timer aggiornato ogni secondo
   }
 
-  // Metodo per aggiornare visivamente il timer e gestire la fine del tempo
+  /**
+   * Metodo per aggiornare visivamente il timer e gestire la fine del tempo
+   */
   aggiornaTimer() {
     const minuti = Math.floor(this.tempoRimasto / 60);
     const secondi = this.tempoRimasto % 60;
@@ -100,17 +131,23 @@ function cambiaPagina() {
   document.title = titoloSito;
   switch (nome_pagina) {
     case "#pgHomepage":
-      document.title += " - Homepage"; break;
+      document.title += " - Homepage";
+      break;
     case "#pg1":
-      document.title += " - definizioni-generali-doveri-strada"; break;
+      document.title += " - definizioni-generali-doveri-strada";
+      break;
     case "#pg2":
-      document.title += " - segnali stradali e di pericolo"; break;
+      document.title += " - segnali stradali e di pericolo";
+      break;
     case "#pg3":
-      document.title += " - limiti di velocità, pericolo e intralcio alla circolazione"; break;
+      document.title += " - limiti di velocità, pericolo e intralcio alla circolazione";
+      break;
     case "#pg4":
-      document.title += " - esempi di precedenza"; break;
+      document.title += " - esempi di precedenza";
+      break;
     case "#pg5":
-      document.title += " - arresto, fermata e sosta"; break;
+      document.title += " - arresto, fermata e sosta";
+      break;
     case "#pgQuizFinale":
       document.title += " - Quiz Patente";
       if (!timer && domandeSelezionate.length > 0) {
