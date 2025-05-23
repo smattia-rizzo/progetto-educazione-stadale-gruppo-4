@@ -88,31 +88,70 @@
             </div>
 
             <!-- pagina quiz -->
-            <div id="pgQuizFinale" class="pagina container">
-                <div class="container-sm py-5" id="quizFinale">
-                    <div class="card shadow rounded-4">
-                        <p id="timer" class="mb-3 fs-4 fw-bold">Tempo rimasto: 20:00</p>
-                        <img id="questionImage" src="https://via.placeholder.com/400x200?text=Immagine+Domanda" class="card-img-top rounded mb-3" alt="Domanda">
-                        <div class="card-body text-center">
-                            <h2 class="card-title mb-4">Quiz Patente</h2>
-
-                            <!-- Testo della domanda -->
-                            <p class="fs-5" id="questionText">Caricamento domande...</p>
-
-                            <!-- Bottoni Vero / Falso -->
-                            <div class="mb-3">
-                                <button id="btnTrue" class="btn btn-success me-2">Vero</button>
-                                <button id="btnFalse" class="btn btn-danger">Falso</button>
+            <div class="pagina py-5 d-flex justify-content-center" id="pgQuizFinale">
+                <div class="container">
+                    <div class="row justify-content-center" id="quizPag">
+                        <div class="col-md-12 col-lg-12">
+                            <!-- Timer -->
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <h4 id="timer" class="text-danger mb-0"></h4>
+                                <div class="d-flex justify-content-end" style="width: 40%;">
+                                    <div class="progress w-100" style="height: 20px;">
+                                        <div id="quizProgress" class="progress-bar bg-success" role="progressbar" style="width: 0%"></div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                                <div id="progressBar" class="progress-bar progress-bar-striped progress-bar-animated" style="width: 75%">1/30</div>
+
+
+                            <!-- Question Card -->
+                            <div class="card shadow mb-4">
+                                <div class="card-body">
+                                    <h5 id="questionCounter" class="text-muted mb-3 text-center"></h5>
+
+                                    <!-- Immagine a sinistra e testo a destra -->
+                                    <div class="d-flex align-items-center mb-4">
+                                        <img id="questionImage" class="img-thumbnail me-4" alt="Immagine domanda" style="max-width: 250px; display: none;">
+                                        <h3 id="questionText" class="card-title mb-0"></h3>
+                                    </div>
+
+                                    <!-- Pulsanti -->
+                                    <div class="d-flex justify-content-center gap-3">
+                                        <button id="btnTrue" class="btn btn-success btn-lg px-5">Vero</button>
+                                        <button id="btnFalse" class="btn btn-danger btn-lg px-5">Falso</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Navigazione -->
+                            <div class="d-flex justify-content-between mt-4">
+                                <button class="btn btn-outline-primary" onclick="previousQuestion()" id="domandaPrec">
+                                    ← Domanda Precedente
+                                </button>
+                                <button class="btn btn-primary" onclick="nextQuestion()" id="domandaSucc">
+                                    Prossima Domanda →
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Risultati -->
+                    <div id="quizResultsContainer" class="d-none mt-5">
+                        <div class="card shadow">
+                            <div class="card-header bg-primary text-white">
+                                <h3 class="mb-0">Risultati del Quiz</h3>
+                            </div>
+                            <div class="card-body">
+                                <div id="passStatus" class="alert mb-4"></div>
+                                <div id="questionsList" class="list-group"></div>
+                                <button onclick="restartQuiz()" class="btn btn-success mt-4 w-100">
+                                    Ricomincia il Quiz
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </main>
-        
 
         <!-- Script -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
