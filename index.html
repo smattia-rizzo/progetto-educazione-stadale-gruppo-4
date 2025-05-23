@@ -25,7 +25,7 @@
                     </div>
                     <div class="offcanvas-body">
                         <div class="list-group">
-                            <a href="#pg1" class="list-group-item list-group-item-action">definizioni-generali-doveri-strada</a>
+                            <a href="#pg1" class="list-group-item list-group-item-action">Definizioni generali e doveri sulla strada</a>
                             <a href="#pg2" class="list-group-item list-group-item-action">segnali stradali e di pericolo</a>
                             <a href="#pg3" class="list-group-item list-group-item-action">limiti di velocità, pericolo e intralcio alla circolazione</a>
                             <a href="#pg4" class="list-group-item list-group-item-action">esempi di precedenza</a>
@@ -39,7 +39,8 @@
             </div>
         </nav>
         <!-- Corpo della pagina -->
-        <main class="container text-center">
+        <!-- Struttura delle pagine: dei container che contengono il contenuto delle singole pagine-->
+        <main class="container-fluid text-center">
             <div id="pgHomepage" class="pagina container">
                 <h1>Educazione Stradale</h1>
                 <p>L’educazione stradale è un aspetto fondamentale della formazione civica di ogni individuo. 
@@ -55,7 +56,7 @@
                 <p>Gli argomenti che tratteremo in questa guida:</p>
                 <!-- Inserire Card Group o Card Grid al posto della lista-->
                 <div class="list-group">
-                    <a href="#pg1" class="list-group-item list-group-item-action">definizioni-generali-doveri-strada</a>
+                    <a href="#pg1" class="list-group-item list-group-item-action">Definizioni generali e doveri sulla strada</a>
                     <a href="#pg2" class="list-group-item list-group-item-action">segnali stradali e di pericolo</a>
                     <a href="#pg3" class="list-group-item list-group-item-action">limiti di velocità, pericolo e intralcio alla circolazione</a>
                     <a href="#pg4" class="list-group-item list-group-item-action">esempi di precedenza</a>
@@ -63,9 +64,139 @@
                     <a href="#pgQuizFinale" class="list-group-item list-group-item-action">Quiz Finale</a>
                 </div>
             </div>
-            <!-- pagina definizioni-generali-doveri-strada -->
+            <!-- pagina Definizioni generali e doveri sulla strada -->
             <div id="pg1" class="pagina container">
-                <h1>definizioni-generali-doveri-strada</h1>
+                <h1 class="mb-4">Definizioni generali e doveri sulla strada</h1>
+                <!-- Riempimento informazioni tramite fetch e l'API di https://it.wikipedia.org -->
+                <div class="row gy-3 ">
+
+                    <!-- Strada -->
+                    <div class="col-md-6">
+                        <div class="card p-3 h-100 border-secondary">
+                            <img src="images/strada.jpeg" class="card-img-top" alt="Immagine di una superstrada a due corsie delimitata da Guard Rail">
+                            <h5 class="card-title text-light p-1">Strada</h5>
+                            <p class="card-text" id="strada">
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Carreggiata -->
+                    <div class="col-md-6">
+                        <div class="card p-3 h-100 border-secondary">
+                            <img src="images/carreggiata.jpg" class="card-img-top" alt="Schema di carreggiate: a senso unico e doppio senso">
+                            <h5 class="card-title text-light p-1">Carreggiata</h5>
+                            <p class="card-text" id="carreggiata">
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Corsia -->
+                    <div class="col-md-6">
+                        <div class="card p-3 h-100 border-secondary">
+                            <h5 class="card-title text-light p-1">Corsia</h5>
+                            <p class="card-text" id="corsia">
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Marciapiede -->
+                    <div class="col-md-6">
+                        <div class="card p-3 h-100 border-secondary">
+                            <h5 class="card-title text-light p-1">Marciapiede</h5>
+                            <p class="card-text" id="marciapiede">
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Attraversamento pedonale -->
+                    <div class="col-md-6">
+                        <div class="card p-3 h-100 border-secondary">
+                            <img src="images/attraversamento_pedonale.svg" class="card-img-top" alt="Segnaletica di un attraversamento pedonale">
+                            <h5 class="card-title text-light p-1">Attraversamento pedonale</h5>
+                            <p class="card-text" id="attraversamento_pedonale">
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Autostrada -->
+                    <div class="col-md-6">
+                        <div class="card p-3 h-100 border-secondary">
+                            <img src="images/autostrada.webp" class="card-img-top" alt="Segnaletica di un attraversamento pedonale">
+                            <h5 class="card-title text-light p-1">Autostrada</h5>
+                            <p class="card-text" id="autostrada">
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Banchina -->
+                    <div class="col-md-6">
+                        <div class="card p-3 h-100 border-secondary">
+                            <h5 class="card-title text-light p-1">Banchina</h5>
+                            <p class="card-text" id="banchina">
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Intersezione (Incrocio) -->
+                    <div class="col-md-6">
+                        <div class="card p-3 h-100 border-secondary">
+                            <h5 class="card-title text-light p-1">Intersezione (Incrocio)</h5>
+                            <p class="card-text" id="intersezione_stradale">
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Rotatoria -->
+                    <div class="col-md-6">
+                        <div class="card p-3 h-100 border-secondary">
+                            <h5 class="card-title text-light p-1">Rotatoria</h5>
+                            <p class="card-text" id="rotatoria">
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Passaggio a livello -->
+                    <div class="col-md-6">
+                        <div class="card p-3 h-100 border-secondary">
+                            <h5 class="card-title text-light p-1">Passaggio a livello</h5>
+                            <p class="card-text" id="passaggio_a_livello">
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Zona a traffico limitato (ZTL) -->
+                    <div class="col-md-6">
+                        <div class="card p-3 h-100 border-secondary">
+                            <h5 class="card-title text-light p-1">Zona a traffico limitato (ZTL)</h5>
+                            <p class="card-text" id="ztl">
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Veicolo -->
+                    <div class="col-md-6">
+                        <div class="card p-3 h-100 border-secondary">
+                            <h5 class="card-title text-light p-1">Veicolo</h5>
+                            <p class="card-text" id="autoveicolo">
+                            </p>
+                        </div>
+                    </div>
+
+
+
+                    <!-- Doveri del pedone e del conducente -->
+                    <div class="col-12">
+                        <div class="card p-3 h-100 border-secondary">
+                            <h5 class="card-title text-light p-1">Doveri degli utenti della strada</h5>
+                            <ul class="list-unstyled mb-0">
+                                <li>► Il pedone deve utilizzare i marciapiedi e gli attraversamenti; attraversare solo sulle strisce.</li>
+                                <li>► Il conducente deve rispettare limiti di velocità, segnaletica e mantenere la distanza di sicurezza.</li>
+                                <li>► Entrambi devono adottare comportamenti che non mettano in pericolo terzi.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
         
             <!-- pagina segnali stradali e di pericolo -->
@@ -89,8 +220,8 @@
             </div>
 
             <!-- pagina quiz -->
-            <div class="pagina py-5 d-flex justify-content-center" id="pgQuizFinale">
-                <div class="container">
+            <div class="pagina container" id="pgQuizFinale">
+                <div class="py-5 d-flex justify-content-center">
                     <div class="row justify-content-center" id="quizPag">
                         <div class="col-md-12 col-lg-12">
                             <!-- Timer -->

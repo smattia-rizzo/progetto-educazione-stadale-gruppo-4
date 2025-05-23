@@ -348,7 +348,7 @@ class Timer {
  */
 function cambiaPagina() {
   const nome_pagina = location.hash || "#pgHomepage"; // Prende il nome della pagina dall'URL hash
-  const pagine = document.querySelectorAll(".pagina"); // Tutte le sezioni "pagina"
+  let  pagine = document.querySelectorAll(".pagina"); // Tutte le sezioni "pagina"
 
   // Nasconde tutte le pagine e mostra solo quella richiesta
   pagine.forEach(pagina => {
@@ -358,7 +358,7 @@ function cambiaPagina() {
     }
   });
 
-  // Cambia il titolo del sito a seconda della pagina
+  // Cambia il titolo del sito a seconda della pagina e avvia il Quiz nella pagina del Quiz
   document.title = titoloSito;
   switch (nome_pagina) {
     case "#pgHomepage":
@@ -395,6 +395,36 @@ function cambiaPagina() {
 window.addEventListener("load", cambiaPagina);
 window.addEventListener("hashchange", cambiaPagina);
 
+//SEZIONE: Richiesta alla API di Wikipedia
+
+function richiestaAPIWikipedia(url, idTesto){
+   fetch("https://api.allorigins.win/get?url=" + encodeURIComponent(url))
+    .then(response => response.json())
+    .then(data => JSON.parse(data.contents))
+    .then(data => {
+      let pagine = data.query.pages;
+      let testo = pagine[Object.keys(pagine)[0]].extract;
+      console.log(encodeURIComponent(url), pagine)
+      let definizione = testo.split("\n")[0]; // prima riga
+      document.getElementById(idTesto).innerHTML = definizione;
+    })
+}
+
+//Argomenti
+fetch("pagine//pagina1_argomenti.json")
+  .then(response => response.json())
+  .then(data => {
+    data.forEach(async argomento => {
+      
+      richiestaAPIWikipedia(`https://it.wikipedia.org/w/api.php?action=query&prop=extracts&explaintext=true&redirects=1&titles=${argomento.titolo_argomento}&format=json`, argomento.id_componente)
+      await new Promise(resolve => setTimeout(resolve, 1000));  //Funzione per non sovraccaricare le richieste
+    });
+  })
+
+
+
+
+
 //SEZIONE: Variabili
 
 //Variabili statiche
@@ -415,3 +445,4 @@ let utenteCorrente = null;
 document.getElementById("btnRicomincia").addEventListener("click", () => {
   Quiz.generaNuovoQuiz();
 })
+

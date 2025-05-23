@@ -22,7 +22,6 @@ main{
   display: block;
 }
 
-/*TODO: aggiustare l'ampiezza*/
 #questionImage {
   max-height: 400px;
   height: auto;

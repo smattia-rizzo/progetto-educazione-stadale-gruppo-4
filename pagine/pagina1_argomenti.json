@@ -1,0 +1,50 @@
+[
+  {
+    "titolo_argomento": "Strada",
+    "id_componente": "strada"
+  },
+  {
+    "titolo_argomento": "Carreggiata",
+    "id_componente": "carreggiata"
+  },
+  {
+    "titolo_argomento": "Corsia",
+    "id_componente": "corsia"
+  },
+  {
+    "titolo_argomento": "Marciapiede",
+    "id_componente": "marciapiede"
+  },
+  {
+    "titolo_argomento": "Attraversamento pedonale",
+    "id_componente": "attraversamento_pedonale"
+  },
+  {
+    "titolo_argomento": "Autostrada",
+    "id_componente": "autostrada"
+  },
+  {
+    "titolo_argomento": "Banchina",
+    "id_componente": "banchina"
+  },
+  {
+    "titolo_argomento": "intersezione_stradale",
+    "id_componente": "intersezione_stradale"
+  },
+  {
+    "titolo_argomento": "Rotatoria",
+    "id_componente": "rotatoria"
+  },
+  {
+    "titolo_argomento": "Passaggio a Livello",
+    "id_componente": "passaggio_a_livello"
+  },
+  {
+    "titolo_argomento": "Zona a traffico limitato",
+    "id_componente": "ztl"
+  },
+  {
+    "titolo_argomento": "Autoveicolo",
+    "id_componente": "autoveicolo"
+  }
+]
