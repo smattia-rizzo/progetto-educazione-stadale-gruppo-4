@@ -29,7 +29,7 @@ class Quiz {
    * @param {Timer} timer Istanza del Timer
    */
   constructor(domande, timer) {
-    this.domande = domande;
+    this.domande = domande; // Array delle 30 domande casuali
     this.timer = timer;
     this.indiceDomandaCorrente = 0; // Indice della domanda attuale
 
@@ -57,7 +57,7 @@ class Quiz {
     clonato = vecchio.cloneNode(true);
     vecchio.parentNode.replaceChild(clonato, vecchio);
     clonato.addEventListener("click", () => {
-      quizAttivo.getDomande()[this.indiceDomandaCorrente].setRispUtente(true);
+      this.getDomande()[this.indiceDomandaCorrente].setRispUtente(true);
       this.nextQuestion();
     });
 
@@ -66,7 +66,7 @@ class Quiz {
     clonato = vecchio.cloneNode(true);
     vecchio.parentNode.replaceChild(clonato, vecchio);
     clonato.addEventListener("click", () => {
-      quizAttivo.getDomande()[this.indiceDomandaCorrente].setRispUtente(false);;
+      this.getDomande()[this.indiceDomandaCorrente].setRispUtente(false);;
       this.nextQuestion();
     });
     
@@ -84,16 +84,14 @@ class Quiz {
    * Crea un nuovo quiz e sostituisce quello esistente se presente
    */
   static generaNuovoQuiz() {
-    // Resetta tutte le variabili
-    this.indiceDomandaCorrente = 0;
     //controllo se timer esiste
-    if (timer && timer.timerInterval) {
-      clearInterval(timer.timerInterval);
+    if (utenteCorrente != null) {
+      if (utenteCorrente.getQuizCorrente() != null) {
+        if (utenteCorrente.getQuizCorrente().getTimer() && utenteCorrente.getQuizCorrente().getTimer().getTimerInterval()) {
+          clearInterval(utenteCorrente.getQuizCorrente().getTimer().getTimerInterval());
+        }
+      }
     }
-
-    timer = null;
-    utenteCorrente = null;
-    quizAttivo = null;
 
     document.getElementById("domandaPrec").style.display = "block";
     document.getElementById("domandaSucc").style.display = "block";
@@ -107,16 +105,9 @@ class Quiz {
     document.getElementById('btnTrue').disabled = true;
     document.getElementById('btnFalse').disabled = true;
 
-    // Ricarica le domande
-    // fetch() è una funzione JavaScript integrata che effettua una richiesta verso un URL specificato.
+    // Carica le domande
     fetch(rawUrlGitHubQuiz + "quizPatenteB2023.json")
-        // .then() è un metodo che "attende" la risposta della fetch e riceve un oggetto Response chiamato "response".
-        // response.json() è un metodo che converte il corpo della risposta (che si presume sia JSON) in un oggetto JavaScript.
-        // Anche response.json() ritorna una Promise, quindi si può concatenare un altro .then().
         .then(response => response.json())
-        // Qui riceviamo l'oggetto JavaScript "data" che è il risultato della conversione JSON.
-        // "data" sarà quindi il contenuto del file JSON scaricato sotto forma di array, oggetto, o qualunque struttura dati contenga.
-        // All'interno di questa funzione puoi poi manipolare, leggere o usare i dati caricati.
         .then(data => {
             const tutteDomande = [];
             
@@ -132,11 +123,10 @@ class Quiz {
             
             //estraggo un numero casuale positivo o negativo, e ordina la lista in base all'ordine di quei numeri estratti
             //poi prendo le prime 30 domande
-            domandeSelezionate = tutteDomande.sort(() => 0.5 - Math.random()).slice(0, 30);
+            let domandeSelezionate = tutteDomande.sort(() => 0.5 - Math.random()).slice(0, 30);
             
-            // Re-inizializza il timer e il quiz
+            // Inizializzazione Timer e Quiz
             utenteCorrente = new Utente("Ospite", new Quiz(domandeSelezionate, new Timer(20 * 60)));
-            quizAttivo = utenteCorrente.getQuizCorrente();
 
             // Resetta la progress bar
             document.getElementById('quizProgress').style.width = '0%';
@@ -144,7 +134,7 @@ class Quiz {
             document.getElementById('quizProgress').classList.add('bg-success');
 
             // Mostra la prima domanda e abilita bottoni
-            quizAttivo.mostraDomanda(0);
+            utenteCorrente.getQuizCorrente().mostraDomanda(0);
             document.getElementById('btnTrue').disabled = false;
             document.getElementById('btnFalse').disabled = false;
         })
@@ -156,14 +146,15 @@ class Quiz {
   }
   /**
    * Aggiorna i progressi nella progress bar
+   * @returns {void}
    */
   updateProgressBar() {
-    //numero domanda / 30 * 100 -- es. 1/30 * 100 = 3
-    const progress = ((this.indiceDomandaCorrente + 1) / domandeSelezionate.length) * 100;
+    //numero domanda / 30 * 100
+    const progress = ((this.indiceDomandaCorrente + 1) / this.domande.length) * 100;
     const progressBar = document.getElementById('quizProgress');
     
     progressBar.style.width = `${progress}%`;
-    progressBar.innerHTML = `${this.indiceDomandaCorrente}/${domandeSelezionate.length}`
+    progressBar.innerHTML = `${this.indiceDomandaCorrente + 1}/${this.domande.length}`
   }
 
   /**
@@ -172,14 +163,14 @@ class Quiz {
    * @returns {void}
    */
   mostraDomanda(indice) {
-    if (indice < 0 || indice >= domandeSelezionate.length) return;
+    if (indice < 0 || indice >= this.domande.length) return;
 
-    const domanda = domandeSelezionate[indice];
+    const domanda = this.domande[indice];
     const img = document.getElementById('questionImage');
     const testo = document.getElementById('questionText');
 
     document.getElementById('questionCounter').textContent = 
-      `Domanda ${indice + 1} di ${domandeSelezionate.length}`;
+      `Domanda ${indice + 1} di ${this.domande.length}`;
     testo.textContent = domanda.getTesto();
 
     //se la domanda esiste la rendo visibile
@@ -198,17 +189,10 @@ class Quiz {
    * @returns {void}
    */
   nextQuestion() {
-    if (!quizAttivo || !quizAttivo.getDomande()) {
-      console.error('Quiz non inizializzato correttamente');
-      return;
-    }
-    
-    // Registra la risposta dell'utente (esempio)
-    // domandaCorrente.setRispUtente(true/false);
     
     this.indiceDomandaCorrente++;
     
-    if (this.indiceDomandaCorrente >= domandeSelezionate.length) {
+    if (this.indiceDomandaCorrente >= this.domande.length) {
       this.showQuizResults();
     } else {
       this.mostraDomanda(this.indiceDomandaCorrente);
@@ -228,10 +212,16 @@ class Quiz {
   
   /**
    * Metodo per mostrare i risultati delle domande del Quiz
+   * @returns {void}
    */
   showQuizResults() {
-    const correctAnswers = quizAttivo.getDomande().filter(d => d.getRispUtente() === d.getRisposta()).length;
-    const errori = domandeSelezionate.length - correctAnswers;
+    let correctAnswers = 0;
+    this.domande.forEach(domanda => {
+      if (domanda.getRispUtente() == domanda.getRisposta()) {
+        correctAnswers += 1;
+      }
+    });
+    const errori = this.domande.length - correctAnswers;
     const isPassato = errori <= 3;
 
     // Nascondi elementi del quiz
@@ -258,7 +248,7 @@ class Quiz {
     const questionsList = document.getElementById('questionsList');
     questionsList.innerHTML = '';
     
-    quizAttivo.getDomande().forEach((domanda, index) => {
+    this.domande.forEach((domanda, index) => {
       const isCorrect = domanda.getRispUtente() === domanda.getRisposta();
       const questionElement = document.createElement('div');
       questionElement.className = `list-group-item ${isCorrect ? 'list-group-item-success' : 'list-group-item-danger'}`;
@@ -321,7 +311,7 @@ class Timer {
    * @param {int} secondi Secondi totali impostati
    */
   constructor(secondi) {
-    this.secondi = secondi;               // 
+    this.secondi = secondi;
     this.tempoRimasto = secondi;          // Tempo rimasto
     this.timerElement = document.getElementById('timer'); // Elemento HTML del timer
     this.timerInterval = setInterval(this.aggiornaTimer.bind(this), 1000); // Timer aggiornato ogni secondo
@@ -330,6 +320,7 @@ class Timer {
 
   /**
    * Metodo per aggiornare visivamente il timer e gestire la fine del tempo
+   * @returns {void}
    */
   aggiornaTimer() {
     const minuti = Math.floor(this.tempoRimasto / 60);
@@ -346,11 +337,14 @@ class Timer {
       this.tempoRimasto--;
     }
   }
+  getTimerInterval() { return this.timerInterval; }
 }
 
+//SEZIONE: Gestione cambio pagina
 
 /**
  * Funzione per cambiare pagina
+ * @returns {void}
  */
 function cambiaPagina() {
   const nome_pagina = location.hash || "#pgHomepage"; // Prende il nome della pagina dall'URL hash
@@ -387,8 +381,10 @@ function cambiaPagina() {
       break;
     case "#pgQuizFinale":
       document.title += " - Quiz Patente";
-      if(quizAttivo == null) {
-        // Avvia quiz se non è già stato fatto
+      // Avvia quiz se non è già stato fatto
+      if(utenteCorrente == null) {
+        Quiz.generaNuovoQuiz();
+      } else if (utenteCorrente.getQuizCorrente() == null) {
         Quiz.generaNuovoQuiz();
       }
       break;
@@ -399,12 +395,17 @@ function cambiaPagina() {
 window.addEventListener("load", cambiaPagina);
 window.addEventListener("hashchange", cambiaPagina);
 
-let timer = null;  // Oggetto Timer
+//SEZIONE: Variabili
+
+//Variabili statiche
 const titoloSito = "Educazione Stradale";
-let utenteCorrente = null;  // Utente loggato
-let quizAttivo = null;      // Quiz attualmente in corso
-let domandeSelezionate = []; // Array delle 30 domande casuali
 const rawUrlGitHubQuiz = "https://raw.githubusercontent.com/Ed0ardo/QuizPatenteB/refs/heads/main/"
+
+/**
+ * La variabile che esprime l'utente corrente
+ * @type {Utente}
+ */
+let utenteCorrente = null;
 
 
 
