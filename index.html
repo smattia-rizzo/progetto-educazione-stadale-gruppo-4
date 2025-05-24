@@ -1,76 +1,604 @@
 <!DOCTYPE html>
 <html lang="it-IT">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Educazione Stradale - Homepage</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-</head>
-<body>
-
-    <!-- navbar -->
-      <nav class="navbar navbar-dark bg-dark fixed-top">
-          <div class="container-fluid">
-            <a class="navbar-brand" href="#">Educazione stradale</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar">
-              <div class="offcanvas-header">
-                <h5 class="offcanvas-title">Argomenti Trattati</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
-              </div>
-              <div class="offcanvas-body">
-                <div class="list-group">
-                  <button type="button" class="list-group-item list-group-item-action" id="btn1">definizioni-generali-doveri-strada</button>
-                  <button type="button" class="list-group-item list-group-item-action" id="btn2">segnali stradali e di pericolo</button>
-                  <button type="button" class="list-group-item list-group-item-action" id="btn3">limiti di velocità, pericolo e intralcio alla circolazione</button>
-                  <button type="button" class="list-group-item list-group-item-action" id="btn4">esempi di precedenza</button>
-                  <button type="button" class="list-group-item list-group-item-action" id="btn5">arresto, fermata e sosta</button>
-                </div>
-              </div>
-                <div class="list-group">
-                  <button type="button" class="list-group-item list-group-item-action" id="btn6">quiz</button>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Educazione Stradale - Homepage</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+    </head>
+    <body data-bs-theme="dark">
+        <!-- navbar -->
+        <nav class="navbar navbar-dark bg-dark fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#pgHomepage">Educazione stradale</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title">Argomenti Trattati</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <div class="list-group">
+                            <a href="#pg1" class="list-group-item list-group-item-action">Definizioni generali e doveri sulla strada</a>
+                            <a href="#pg2" class="list-group-item list-group-item-action">Segnali stradali e di pericolo</a>
+                            <a href="#pg3" class="list-group-item list-group-item-action">Limiti di velocità e situazioni di pericolo</a>
+                            <a href="#pg4" class="list-group-item list-group-item-action">Norme di precedenza</a>
+                            <a href="#pg5" class="list-group-item list-group-item-action">Comportamenti a rischio</a>
+                            <a href="#pg6" class="list-group-item list-group-item-action">Utenti vulnerabili e dispositivi di sicurezza</a>
+                        </div>
+                    </div>
+                    <div class="list-group">
+                        <a href="#pgQuizFinale" class="list-group-item list-group-item-action">Quiz Finale</a>
+                    </div>
                 </div>
             </div>
-          </div>
-      </nav>
-  
-      <!-- pagina definizioni-generali-doveri-strada -->
-      <div id="pg1">
-        <h1>definizioni-generali-doveri-strada</h1>
-      </div>
-  
-      <!-- pagina segnali stradali e di pericolo -->
-      <div id="pg2">
-        <h1>segnali stradali e di pericolo</h1>
-      </div>
-        
-      <!-- pagina limiti di velocità, pericolo e intralcio alla circolazione -->
-      <div id="pg3">
-        <h1>limiti di velocità, pericolo e intralcio alla circolazione</h1>
-      </div>
-      
-      <!-- pagina esempi di precedenza -->
-      <div id="pg4">
-        <h1>esempi di precedenza</h1>
-      </div>
-      
-      <!-- pagina arresto, fermata e sosta -->
-      <div id="pg5">
-        <h1>arresto, fermata e sosta</h1>
-      </div>
+        </nav>
+        <!-- Corpo della pagina -->
+        <!-- Struttura delle pagine: dei container che contengono il contenuto delle singole pagine-->
+        <main class="container-fluid text-center">
+            <div id="pgHomepage" class="pagina container">
+                <h1>Educazione Stradale</h1>
+                <p>L’educazione stradale è un aspetto fondamentale della formazione civica di ogni individuo. 
+                    Essa ha l’obiettivo di trasmettere conoscenze, regole e comportamenti corretti da adottare 
+                    sulla strada, sia come pedoni, ciclisti, motociclisti o automobilisti. 
+                    Attraverso l’apprendimento delle norme del Codice della Strada e la consapevolezza 
+                    dei pericoli legati alla circolazione, l’educazione stradale contribuisce a formare 
+                    cittadini responsabili e attenti alla sicurezza propria e altrui. 
+                    Promuovendo il rispetto delle regole e la convivenza tra i diversi utenti della strada, 
+                    rappresenta uno strumento essenziale per prevenire incidenti e 
+                    favorire una mobilità più sicura e sostenibile.
+                </p>
+                <p>Gli argomenti che tratteremo in questa guida:</p>
+                <!-- Inserire Card Group o Card Grid al posto della lista-->
+                <div class="list-group">
+                    <a href="#pg1" class="list-group-item list-group-item-action">Definizioni generali e doveri sulla strada</a>
+                    <a href="#pg2" class="list-group-item list-group-item-action">segnali stradali e di pericolo</a>
+                    <a href="#pg3" class="list-group-item list-group-item-action">Limiti di velocità e situazioni di pericolo</a>
+                    <a href="#pg4" class="list-group-item list-group-item-action">Norme di precedenza</a>
+                    <a href="#pg5" class="list-group-item list-group-item-action">Comportamenti a rischio</a>
+                    <a href="#pg6" class="list-group-item list-group-item-action">Utenti vulnerabili e dispositivi di sicurezza</a>
+                    <a href="#pgQuizFinale" class="list-group-item list-group-item-action">Quiz Finale</a>
+                </div>
+            </div>
+            <!-- pagina Definizioni generali e doveri sulla strada -->
+            <div id="pg1" class="pagina container">
+                <h1 class="mb-4">Definizioni generali e doveri sulla strada</h1>
+                <!-- Riempimento informazioni tramite fetch e l'API di https://it.wikipedia.org -->
+                <div class="row gy-3 ">
 
-      <!-- pagina quiz -->
-      <div id="pg6">
-        <h1>quiz</h1>
-      </div>
-  
-  
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-      <script src="script.js"></script>  
-  </body>
+                    <!-- Strada -->
+                    <div class="col-md-6">
+                        <div class="card p-3 h-100 border-secondary">
+                            <img src="images/strada.jpeg" class="card-img-top" alt="Immagine di una superstrada a due corsie delimitata da Guard Rail">
+                            <h5 class="card-title text-light p-1">Strada</h5>
+                            <p class="card-text" id="strada">
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Carreggiata -->
+                    <div class="col-md-6">
+                        <div class="card p-3 h-100 border-secondary">
+                            <img src="images/carreggiata.jpg" class="card-img-top" alt="Schema di carreggiate: a senso unico e doppio senso">
+                            <h5 class="card-title text-light p-1">Carreggiata</h5>
+                            <p class="card-text" id="carreggiata">
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Corsia -->
+                    <div class="col-md-6">
+                        <div class="card p-3 h-100 border-secondary">
+                            <h5 class="card-title text-light p-1">Corsia</h5>
+                            <p class="card-text" id="corsia">
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Marciapiede -->
+                    <div class="col-md-6">
+                        <div class="card p-3 h-100 border-secondary">
+                            <h5 class="card-title text-light p-1">Marciapiede</h5>
+                            <p class="card-text" id="marciapiede">
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Attraversamento pedonale -->
+                    <div class="col-md-6">
+                        <div class="card p-3 h-100 border-secondary">
+                            <img src="images/attraversamento_pedonale.svg" class="card-img-top" alt="Segnaletica di un attraversamento pedonale">
+                            <h5 class="card-title text-light p-1">Attraversamento pedonale</h5>
+                            <p class="card-text" id="attraversamento_pedonale">
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Autostrada -->
+                    <div class="col-md-6">
+                        <div class="card p-3 h-100 border-secondary">
+                            <img src="images/autostrada.webp" class="card-img-top" alt="Segnaletica di un attraversamento pedonale">
+                            <h5 class="card-title text-light p-1">Autostrada</h5>
+                            <p class="card-text" id="autostrada">
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Banchina -->
+                    <div class="col-md-6">
+                        <div class="card p-3 h-100 border-secondary">
+                            <h5 class="card-title text-light p-1">Banchina</h5>
+                            <p class="card-text" id="banchina">
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Intersezione (Incrocio) -->
+                    <div class="col-md-6">
+                        <div class="card p-3 h-100 border-secondary">
+                            <h5 class="card-title text-light p-1">Intersezione (Incrocio)</h5>
+                            <p class="card-text" id="intersezione_stradale">
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Rotatoria -->
+                    <div class="col-md-6">
+                        <div class="card p-3 h-100 border-secondary">
+                            <h5 class="card-title text-light p-1">Rotatoria</h5>
+                            <p class="card-text" id="rotatoria">
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Passaggio a livello -->
+                    <div class="col-md-6">
+                        <div class="card p-3 h-100 border-secondary">
+                            <h5 class="card-title text-light p-1">Passaggio a livello</h5>
+                            <p class="card-text" id="passaggio_a_livello">
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Zona a traffico limitato (ZTL) -->
+                    <div class="col-md-6">
+                        <div class="card p-3 h-100 border-secondary">
+                            <h5 class="card-title text-light p-1">Zona a traffico limitato (ZTL)</h5>
+                            <p class="card-text" id="ztl">
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Veicolo -->
+                    <div class="col-md-6">
+                        <div class="card p-3 h-100 border-secondary">
+                            <h5 class="card-title text-light p-1">Veicolo</h5>
+                            <p class="card-text" id="autoveicolo">
+                            </p>
+                        </div>
+                    </div>
+
+
+
+                    <!-- Doveri del pedone e del conducente -->
+                    <div class="col-12">
+                        <div class="card p-3 h-100 border-secondary">
+                            <h5 class="card-title text-light p-1">Doveri degli utenti della strada</h5>
+                            <ul class="list-unstyled mb-0">
+                                <li>► Il pedone deve utilizzare i marciapiedi e gli attraversamenti; attraversare solo sulle strisce.</li>
+                                <li>► Il conducente deve rispettare limiti di velocità, segnaletica e mantenere la distanza di sicurezza.</li>
+                                <li>► Entrambi devono adottare comportamenti che non mettano in pericolo terzi.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- pagina segnali stradali e di pericolo -->
+            <div id="pg2" class="pagina container">
+                <h1 class="mb-4">Segnali stradali e segnali di pericolo</h1>
+                <!-- Riempimento informazioni tramite fetch e l'API di https://it.wikipedia.org -->
+                <div class="row gy-3">
+
+                    <!-- Segnali stradali -->
+                    <div class="col-md-6">
+                        <div class="card p-3 h-100 border-secondary">
+                            <img src="images/segnali_stradali_generali.jpg" class="card-img-top" alt="Diversi segnali stradali">
+                            <h5 class="card-title text-light p-1">Segnali stradali</h5>
+                            <p class="card-text" id="segnali_stradali">
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Segnali di pericolo -->
+                    <div class="col-md-6">
+                        <div class="card p-3 h-100 border-secondary">
+                            <img src="images/segnale_pericolo.svg" class="card-img-top" alt="Vari segnali di pericolo triangolari">
+                            <h5 class="card-title text-light p-1">Segnali di pericolo</h5>
+                            <p class="card-text" id="segnali_pericolo">
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Curva pericolosa -->
+                    <div class="col-md-6">
+                        <div class="card p-3 h-100 border-secondary">
+                            <!--Di F l a n k e r - Regolamento di esecuzione e di attuazione del nuovo codice della strada - Decreto del Presidente della Repubblica 16 dicembre 1992, n. 495, Art. 86, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=1344965-->
+                            <img src="images/curva_pericolosa.svg" class="card-img-top" alt="Segnale di curva pericolosa a destra">
+                            <h5 class="card-title text-light p-1">Curva pericolosa</h5>
+                            <p class="card-text" id="curva_pericolosa">
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Doppia curva -->
+                    <div class="col-md-6">
+                        <div class="card p-3 h-100 border-secondary">
+                            <img src="images/doppia_curva.svg" class="card-img-top" alt="Segnale di doppia curva">
+                            <h5 class="card-title text-light p-1">Doppia curva</h5>
+                            <p class="card-text" id="doppia_curva">
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Discesa pericolosa -->
+                    <div class="col-md-6">
+                        <div class="card p-3 h-100 border-secondary">
+                            <img src="images/discesa_pericolosa.svg" class="card-img-top" alt="Segnale di discesa pericolosa">
+                            <h5 class="card-title text-light p-1">Discesa pericolosa</h5>
+                            <p class="card-text" id="discesa_pericolosa">
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Attraversamento pedonale (ripetuto per coerenza) -->
+                    <div class="col-md-6">
+                        <div class="card p-3 h-100 border-secondary">
+                            <!--Di F l a n k e r - http://www.codicestradainfantino.it/segnali/fii013.gifhttp://www.codicestradainfantino.it/segnali/tii1.gif, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=1351236-->
+                            <img src="images/attraversamento_pedonale.svg" class="card-img-top" alt="Segnale di attraversamento pedonale">
+                            <h5 class="card-title text-light p-1">Attraversamento pedonale</h5>
+                            <p class="card-text" id="segnale_attraversamento">
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Incrocio pericoloso -->
+                    <div class="col-md-6">
+                        <div class="card p-3 h-100 border-secondary">
+                            <!--https://www.quizpatenteapp.com/manuale-patente/argomento-teoria/204-->
+                            <img src="images/incrocio_pericoloso.jpg" class="card-img-top" alt="Segnale di incrocio pericoloso">
+                            <h5 class="card-title text-light p-1">Incrocio pericoloso</h5>
+                            <p class="card-text" id="incrocio_pericoloso">
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Passaggio a livello senza barriere -->
+                    <div class="col-md-6">
+                        <div class="card p-3 h-100 border-secondary">
+                            <img src="images/passaggio_a_livello_senza_barriere.svg" class="card-img-top" alt="Segnale di passaggio a livello senza barriere">
+                            <h5 class="card-title text-light p-1">Passaggio a livello senza barriere</h5>
+                            <p class="card-text" id="passaggio_senza_barriere">
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            
+            <!-- pagina Limiti di velocità e situazioni di pericolo -->
+            <div id="pg3" class="pagina container">
+                <h1 class="mb-4">Limiti di velocità e situazioni di pericolo</h1>
+                <div class="row gy-4">
+                    <!-- Limiti di velocità generali -->
+                    <div class="col-md-6">
+                        <div class="card h-100 border-secondary text-bg-dark">
+                            <!-- https://upload.wikimedia.org/wikipedia/commons/d/d0/Italian_traffic_signs_-_limiti_di_velocit%C3%A0_generali_%28figura_II_352%29.svg -->
+                            <img src="images/limiti_generali.svg" class="card-img-top" alt="Segnali dei limiti di velocità">
+                            <div class="card-body">
+                                <h5 class="card-title">Limiti di velocità generali</h5>
+                                <p class="card-text">
+                                    In Italia, i limiti di velocità standard sono: 130 km/h in autostrada, 110 km/h in superstrada, 
+                                    90 km/h su strade extraurbane secondarie e 50 km/h nei centri abitati. 
+                                    Questi limiti possono essere ridotti in caso di condizioni meteo avverse o segnaletica specifica.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Limiti di velocità speciali -->
+                    <div class="col-md-6">
+                        <div class="card h-100 border-secondary text-bg-dark">
+                            <div class="card-body">
+                                <h5 class="card-title">Limiti di velocità speciali</h5>
+                                <p class="card-text">
+                                    Alcune categorie di conducenti o veicoli devono rispettare limiti inferiori: 
+                                    ad esempio, i neopatentati non possono superare i 100 km/h in autostrada e gli 80 km/h su strade extraurbane. 
+                                    Anche autobus, mezzi pesanti e veicoli con rimorchio hanno limiti specifici.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Regolazione della velocità -->
+                    <div class="col-md-6">
+                        <div class="card h-100 border-secondary text-bg-dark">
+                            <!-- https://upload.wikimedia.org/wikipedia/commons/e/e5/Italian_traffic_signs_-_strada_sdrucciolevole_per_pioggia.svg -->
+                            <img src="images/regolazione_velocita.svg" class="card-img-top" alt="Auto che rallenta in curva o per condizioni meteo">
+                            <div class="card-body">
+                                <h5 class="card-title">Regolazione della velocità</h5>
+                                <p class="card-text">
+                                    Il conducente deve sempre regolare la velocità in base alle condizioni del traffico, della strada e della visibilità. 
+                                    Anche se il limite è 90 km/h, potrebbe essere necessario andare più piano in caso di pioggia, nebbia o curve pericolose.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ostacoli imprevisti -->
+                    <div class="col-md-6">
+                        <div class="card h-100 border-secondary text-bg-dark">
+                            <div class="card-body">
+                                <h5 class="card-title">Ostacoli imprevisti</h5>
+                                <p class="card-text">
+                                    Può capitare di trovare ostacoli improvvisi come un pallone che rotola sulla carreggiata, un animale selvatico, o un veicolo fermo. 
+                                    È fondamentale mantenere una velocità prudente e la giusta distanza di sicurezza per poter frenare tempestivamente.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- pagina Norme di precedenza -->
+            <div id="pg4" class="pagina container">
+                <h1 class="mb-4">Norme di precedenza</h1>
+                <div class="row gy-4">
+                    <!-- Regole generali agli incroci -->
+                    <div class="col-md-6">
+                        <div class="card h-100 border-secondary text-bg-dark">
+                            <div class="card-body">
+                                <h5 class="card-title">Regole generali agli incroci</h5>
+                                <p class="card-text">
+                                    In assenza di semafori o segnaletica, la regola base è: <strong>dare precedenza a destra</strong>. 
+                                    Tuttavia, se sono presenti segnali (es. STOP o precedenza), bisogna rispettarli. 
+                                    Le manovre devono essere fatte con prudenza, riducendo la velocità.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Precedenza a destra/sinistra -->
+                    <div class="col-md-6">
+                        <div class="card h-100 border-secondary text-bg-dark">
+                            <div class="card-body">
+                                <h5 class="card-title">Precedenza a destra/sinistra</h5>
+                                <p class="card-text">
+                                    La <strong>precedenza a destra</strong> vale negli incroci non regolati.
+                                    La <strong>precedenza a sinistra</strong> non è prevista nel Codice della Strada italiano, 
+                                    tranne in casi particolari come su rotatorie con segnaletica specifica. 
+                                    La precedenza viene sempre regolata dalla segnaletica o dalle regole generali.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Esempio pratico 1: Incrocio non regolato -->
+                    <div class="col-md-6">
+                        <div class="card h-100 border-secondary text-bg-dark">
+                            <div class="card-body">
+                                <h5 class="card-title">Esempio: incrocio non regolato</h5>
+                                <p class="card-text">
+                                    In questo caso, l'auto rossa deve dare precedenza all’auto blu che arriva da destra. 
+                                    Anche in presenza di poco traffico, la regola va rispettata per evitare incidenti.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Esempio pratico 2: Segnale di STOP -->
+                    <div class="col-md-6">
+                        <div class="card h-100 border-secondary text-bg-dark">
+                            <div class="card-body">
+                                <h5 class="card-title">Esempio: segnale di STOP</h5>
+                                <p class="card-text">
+                                    Se presente uno <strong>STOP</strong>, il veicolo deve fermarsi e dare precedenza a tutti i veicoli che provengono dalla strada principale, 
+                                    indipendentemente dalla direzione. È obbligatorio fermarsi completamente.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Esempio pratico 3: Rotatoria -->
+                    <div class="col-md-12">
+                        <div class="card h-100 border-secondary text-bg-dark">
+                            <div class="card-body">
+                                <h5 class="card-title">Esempio: rotatoria</h5>
+                                <p class="card-text">
+                                    Nelle <strong>rotatorie</strong>, i veicoli che entrano devono dare precedenza a chi è già all’interno, 
+                                    a meno che la segnaletica non indichi diversamente. È importante usare le frecce per segnalare l’uscita.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- pagina Comportamenti a rischio -->
+            <div id="pg5" class="pagina container">
+                <h1 class="mb-4">Comportamenti a rischio</h1>
+                <div class="row gy-4">
+
+                <!-- Stato di ebbrezza -->
+                <div class="col-md-6">
+                    <div class="card h-100 text-bg-dark border-secondary">
+                    <div class="card-body">
+                        <h5 class="card-title">Guida in stato di ebbrezza o sotto l’effetto di sostanze</h5>
+                        <p class="card-text">
+                        Guidare dopo aver assunto alcol o droghe compromette riflessi, attenzione e capacità decisionale.  
+                        È una delle principali cause di incidenti gravi.  
+                        Il limite legale di alcol nel sangue per i conducenti è 0,5 g/l (0,0 g/l per neopatentati e professionisti).
+                        </p>
+                    </div>
+                    </div>
+                </div>
+
+                <!-- Uso del cellulare e distrazioni -->
+                <div class="col-md-6">
+                    <div class="card h-100 text-bg-dark border-secondary">
+                    <div class="card-body">
+                        <h5 class="card-title">Uso del cellulare e distrazioni</h5>
+                        <p class="card-text">
+                        L’uso del cellulare durante la guida (anche solo per leggere un messaggio) aumenta di 4 volte il rischio di incidente.
+                        È fondamentale mantenere l’attenzione sulla strada, evitando distrazioni visive, manuali e cognitive.
+                        Le sanzioni prevedono multe e sospensione della patente.
+                        </p>
+                    </div>
+                    </div>
+                </div>
+
+                <!-- Stanchezza e sonnolenza -->
+                <div class="col-md-6">
+                    <div class="card h-100 text-bg-dark border-secondary">
+                    <div class="card-body">
+                        <h5 class="card-title">Stanchezza e sonnolenza</h5>
+                        <p class="card-text">
+                        Guidare stanchi è pericoloso quanto guidare sotto effetto di alcol.  
+                        I colpi di sonno causano gravi incidenti, spesso in autostrada.  
+                        Se si avverte stanchezza, è bene fermarsi e riposare: anche solo 15 minuti possono fare la differenza.
+                        </p>
+                    </div>
+                    </div>
+                </div>
+
+                </div>
+            </div>
+            
+            <!-- pagina Utenti vulnerabili e dispositivi di sicurezza -->
+            <div id="pg6" class="pagina container">
+                <h1 class="mb-4">Utenti vulnerabili e dispositivi di sicurezza</h1>
+
+                <div class="row gy-4">
+
+                <!-- Pedoni e ciclisti -->
+                <div class="col-md-6">
+                    <div class="card h-100 text-bg-dark border-secondary">
+                    <div class="card-body">
+                        <h5 class="card-title">Pedoni e ciclisti</h5>
+                        <p class="card-text">
+                        Pedoni e ciclisti sono tra gli utenti più vulnerabili della strada.  
+                        È essenziale rispettare la distanza di sicurezza quando li si sorpassa, usare la segnaletica e moderare la velocità in aree urbane.  
+                        I ciclisti devono essere visibili e usare luci e casco.
+                        </p>
+                    </div>
+                    </div>
+                </div>
+
+                <!-- Bambini e anziani -->
+                <div class="col-md-6">
+                    <div class="card h-100 text-bg-dark border-secondary">
+                    <div class="card-body">
+                        <h5 class="card-title">Bambini e anziani</h5>
+                        <p class="card-text">
+                        I bambini e gli anziani possono avere difficoltà a valutare correttamente il traffico.  
+                        Bisogna prestare particolare attenzione in prossimità di scuole, parchi e ospedali.  
+                        La loro sicurezza dipende dalla prudenza di tutti gli utenti della strada.
+                        </p>
+                    </div>
+                    </div>
+                </div>
+
+                <!-- Cinture di sicurezza e seggiolini -->
+                <div class="col-md-6">
+                    <div class="card h-100 text-bg-dark border-secondary">
+                    <div class="card-body">
+                        <h5 class="card-title">Cinture di sicurezza e seggiolini</h5>
+                        <p class="card-text">
+                        L’uso della cintura è obbligatorio per tutti i passeggeri, anche nei sedili posteriori.  
+                        I bambini devono viaggiare su appositi **seggiolini omologati**, adeguati alla loro età, altezza e peso.  
+                        Un corretto utilizzo riduce drasticamente il rischio di lesioni gravi in caso di incidente.
+                        </p>
+                    </div>
+                    </div>
+                </div>
+
+                </div>
+            </div>
+
+            <!-- pagina quiz -->
+            <div class="pagina container" id="pgQuizFinale">
+                <div class="py-5 d-flex justify-content-center">
+                    <div class="row justify-content-center" id="quizPag">
+                        <div class="col-md-12 col-lg-12">
+                            <!-- Timer -->
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <h4 id="timer" class="text-danger mb-0"></h4>
+                                <div class="d-flex justify-content-end" style="width: 40%;">
+                                    <div class="progress w-100" style="height: 20px;">
+                                        <div id="quizProgress" class="progress-bar bg-success" role="progressbar" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!-- Question Card -->
+                            <div class="card shadow mb-4">
+                                <div class="card-body">
+                                    <h5 id="questionCounter" class="text-muted mb-3 text-center"></h5>
+
+                                    <!-- Immagine a sinistra e testo a destra -->
+                                    <div class="d-flex align-items-center mb-4">
+                                        <img id="questionImage" class="img-thumbnail me-4" alt="Immagine domanda" style="max-width: 250px; display: none;">
+                                        <h3 id="questionText" class="card-title mb-0"></h3>
+                                    </div>
+
+                                    <!-- Pulsanti -->
+                                    <div class="d-flex justify-content-center gap-3">
+                                        <button id="btnTrue" class="btn btn-success btn-lg px-5">Vero</button>
+                                        <button id="btnFalse" class="btn btn-danger btn-lg px-5">Falso</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Navigazione -->
+                            <div class="d-flex justify-content-between mt-4">
+                                <button class="btn btn-outline-primary" id="domandaPrec">
+                                    ← Domanda Precedente
+                                </button>
+                                <button class="btn btn-primary" id="domandaSucc">
+                                    Prossima Domanda →
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Risultati -->
+                    <div id="quizResultsContainer" class="d-none mt-5">
+                        <div class="card shadow">
+                            <div class="card-header bg-primary text-white">
+                                <h3 class="mb-0">Risultati del Quiz</h3>
+                            </div>
+                            <div class="card-body">
+                                <div id="passStatus" class="alert mb-4"></div>
+                                <div id="questionsList" class="list-group"></div>
+                                <button class="btn btn-success mt-4 w-100" id="btnRicomincia">
+                                    Ricomincia il Quiz
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Script -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="script/classi.js"></script>
+        <script src="script/wikipedia_api.js"></script>
+        <script src="script/script.js"></script>
+    </body>
 </html>

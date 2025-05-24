@@ -1,0 +1,62 @@
+@startuml
+
+' ***PlantUML***
+' *** Classi con attributi/metodi esplicitati con - e + ***
+class Utente {
+  - nome: string
+  - quizCorrente: Quiz
+  + getNome(): string
+  + setNome(nome: string): void
+  + getQuizCorrente(): Quiz
+  + setQuizCorrente(quizCorrente: Quiz): void
+}
+
+class Quiz {
+  - domande: Domanda[]
+  - timer: Timer
+  - indiceDomandaCorrente: int
+  + getDomande(): Domanda[]
+  + setDomande(domande: Domanda[]): void
+  + getTimer(): Timer
+  + setTimer(timer: Timer): void
+  + static generaNuovoQuiz(): void
+  + updateProgressBar(): void
+  + mostraDomanda(indice: int): void
+  + nextQuestion(): void
+  + previousQuestion(): void
+  + showQuizResults(): void
+}
+
+class Domanda {
+  - testo: string
+  - img: string
+  - indice: int
+  - risposta: boolean
+  - rispUtente: boolean
+  + getTesto(): string
+  + setTesto(testo: string): void
+  + getImg(): string
+  + setImg(img: string): void
+  + getIndice(): int
+  + setIndice(indice: int): void
+  + getRisposta(): boolean
+  + setRisposta(risposta: boolean): void
+  + getRispUtente(): boolean
+  + setRispUtente(rispUtente: boolean): void
+}
+
+class Timer {
+  - secondi: int
+  - tempoRimasto: int
+  - timerElement: HTMLElement
+  - timerInterval: number
+  + aggiornaTimer(): void
+  + getTimerInterval(): number
+}
+
+' *** Relazioni ***
+Utente "1" --> "1" Quiz
+Quiz "1" --> "1" Timer
+Quiz "1" --> "0..*" Domanda
+
+@enduml

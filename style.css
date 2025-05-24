@@ -1,18 +1,40 @@
+html{
+  min-width: 350px;
+}
+
 body{
     background-color: rgb(48, 48, 48);
 }
 
-.list-group-item{
-  background-color: rgb(48, 48, 48) !important;
-  color: white !important;
-}
-
-#pg1, #pg2, #pg3, #pg4, #pg5, #pg6{
-  text-align: center;
-  color: white;
+main{
   margin-top: 5%;
 }
 
-#pg2, #pg3, #pg4, #pg5, #pg6{
+/*Nuova gestione cambio pagine*/
+.pagina {
   display: none;
+  max-width: 800px;
+  margin-top: 70px;
+  color: white;
+}
+
+.attiva {
+  display: block;
+}
+
+#questionImage {
+  max-height: 400px;
+  height: auto;
+  width: auto;
+}
+
+
+
+#quizFinale {
+    max-width: 400px;
+  }
+
+/* Rifinimento della schermata quando raggiunge una dimensione non supportata */
+@media only screen and (max-width: 272px) {
+
 }
